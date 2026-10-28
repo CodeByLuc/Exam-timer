@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exam Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <h1>Exam Timer</h1>
+      <div class="top-actions">
+        <button id="soundBtn" class="ghost" type="button">Sound: on</button>
+        <button id="resetBtn" class="ghost" type="button">Reset</button>
+      </div>
+    </header>
+
+    <section id="setup" class="card setup">
+      <label>Total time (minutes)
+        <input id="totalInput" type="number" min="1" max="1440" value="300">
+      </label>
+      <label>Number of challenges
+        <input id="countInput" type="number" min="1" max="30" value="7">
+      </label>
+      <p id="setupHint" class="muted"></p>
+    </section>
+
+    <div class="col">
+      <section class="card">
+        <div class="label">Exam time left</div>
+        <div id="examLeft" class="big">5:00:00</div>
+        <div class="bar"><div id="examBar"></div></div>
+        <div class="row muted">
+          <span id="examElapsed"></span>
+          <span id="examDone"></span>
+        </div>
+        <button id="startBtn" class="primary" type="button">Start exam</button>
+      </section>
+
+      <section id="current" class="card current">
+        <div class="label" id="curName">Challenge 1</div>
+        <div id="curLeft" class="huge">42:51</div>
+        <div class="bar"><div id="curBar"></div></div>
+        <div class="row muted">
+          <span id="curSpent"></span>
+          <span id="curBudget"></span>
+        </div>
+        <button id="finishBtn" class="finish" type="button">Finish challenge</button>
+        <p id="projection" class="muted center"></p>
+        <div id="switchBox" class="switch-box">
+          <div class="label">Switch to another challenge</div>
+          <div id="switcher" class="switcher"></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Challenges</h2>
+      <ol id="list" class="list"></ol>
+      <p class="muted small">Click a challenge to switch to it. Time you already spent on it stays counted.</p>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" hidden>
+    <span id="toastMsg"></span>
+    <button id="undoBtn" type="button">Undo</button>
+    <button id="toastClose" type="button" aria-label="Close">&times;</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
